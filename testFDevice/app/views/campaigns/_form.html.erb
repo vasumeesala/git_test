@@ -1,0 +1,49 @@
+<%= form_for(@campaign) do |f| %>
+  <% if @campaign.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@campaign.errors.count, "error") %> prohibited this campaign from being saved:</h2>
+
+      <ul>
+      <% @campaign.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+       <%= f.hidden_field :key %>
+  </div>
+
+  <div class="field">
+    <%= f.label :campaign_name %><br>
+    <%= f.text_field :campaign_name %>
+  </div>
+  <div class="field">
+    <%= f.label :campaign_description %><br>
+    <%= f.text_field :campaign_description %>
+  </div>
+  <div class="field">
+    <%= f.label :reward %><br>
+    <%= f.number_field :reward %>
+  </div>
+  <div class="field">
+    <%= f.label :tnc %><br>
+    <%= f.text_field :tnc %>
+  </div>
+  <div class="field">
+    <%= f.label :campaign_startdate %><br>
+    <%= f.date_select :campaign_startdate %>
+  </div>
+  <div class="field">
+    <%= f.label :campaign_enddate %><br>
+    <%= f.date_select :campaign_enddate %>
+  </div>
+  <div class="field">
+    <%= f.label :tag_list, 'Tags (seperated by commas)' %><br>
+    <%= f.text_field :tag_list %>
+  </div>
+  <div class="actions">
+    <%= f.submit class:"button radius" %>
+  </div>
+<% end %>
