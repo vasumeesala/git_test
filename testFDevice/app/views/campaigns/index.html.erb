@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="sticky">
+    <h1>Campaigns</h1>
+
+    <%= link_to 'All Campaigns', campaigns_path, class:"button small radius right" if tagged_view?%>
+  </div>
+</div>
+<div class="row">
+      <% @campaigns.each do |campaign| %>
+      <div class="small-12 large-4 columns left">
+        <div class="row">
+          <%= link_to image_tag(campaign.campimg_url, class: 'style_campaign_image'), campaign_path(campaign)  %>
+        </div>
+        <h3><%= campaign.campaign_name %><br></h3>
+        <%= campaign.campaign_description %><br>
+        <%= campaign.reward %><br>
+        <%= campaign.tnc %><br>
+        <%= campaign.campaign_startdate %><br>
+        <%= campaign.campaign_enddate %><br>
+        <%=raw campaign.tag_list.map { |t|  link_to t, tag_path(t) }.join(' , ') %><br>
+       <div class="row">
+        <p></p>
+      </div>
+      </div>
+      <% end %>
+</div>
+<div class="row ">
+<%= foundation_paginate @campaigns %>
+</div>
+
+  <script type="text/javascript">
+      jQuery(function($){
+        $(document).foundation();
+      });
+  </script>  
+<br>
+
+

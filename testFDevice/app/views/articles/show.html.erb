@@ -1,0 +1,14 @@
+<div class="small-9 columns">
+
+<p>
+	<strong>Title: </strong><br>
+	<%= @article.title %><br><br>
+	<strong>Text: </strong><br>
+	<%= @article.text %><br><br>
+	<%= link_to 'Upload Video', videoupload_index_path(:id => @article.id), class: 'label warning'%>
+	<%= link_to 'Edit', edit_article_path(@article), class:"button small radius" %>
+	<%= link_to 'Back', articles_path, class:"button small radius" %>
+	
+</p>
+	
+</div>

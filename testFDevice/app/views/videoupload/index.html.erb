@@ -1,0 +1,13 @@
+    <div class="row">
+	   	<h4> Select Video to upload</h4><br>
+        <p>
+        <%= direct_upload_form_for @vuploader do |f| %>
+             <div class="field">
+                <%= f.file_field :video %>
+                <%= f.submit 'Submit', class: 'button small'%>
+                <%= link_to 'Back', article_path(@article), class: 'button small' %>
+             </div>
+        <%end%>
+
+        </p>
+    </div>

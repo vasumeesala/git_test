@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  campaign_name: MyString
+  campaign_description: MyString
+  reward: 1
+  tnc: MyString
+  campaign_startdate: 2016-02-04
+  campaign_enddate: 2016-02-04
+  tags: MyString
+
+two:
+  campaign_name: MyString
+  campaign_description: MyString
+  reward: 1
+  tnc: MyString
+  campaign_startdate: 2016-02-04
+  campaign_enddate: 2016-02-04
+  tags: MyString

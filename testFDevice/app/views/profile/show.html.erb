@@ -1,0 +1,24 @@
+<div class="row">
+
+<h2> Profile</h2>
+	<%= form_for :profile do |f|%>
+		<%f.hidden_field :id, :value => @profile.id %>
+		<%= f.label :first_name, 'First Name :'%>
+		<%= f.text_field :first_name, :value => @profile.first_name  %>	
+		<%= f.label :last_name, 'Last Name :'%>
+		<%= f.text_field :last_name, :value => @profile.last_name  %>			
+		<%= f.label :address_line1, 'Address Line 1 :'%>
+		<%= f.text_field :address_line1, :value => @profile.address_line1  %>
+		<%= f.label :address_line2, 'Address Line 2 :'%>
+		<%= f.text_field :address_line2, :value => @profile.address_line2  %>
+		<%= f.label :City, 'City :'%>
+		<%= f.text_field :City, :value => @profile.City  %>
+		<%= f.label :state, 'State :'%>
+		<%= f.text_field :state, :value => @profile.state  %>
+		<%= f.label :Zip, 'Zip :'%>
+		<%= f.number_field :Zip, :value => @profile.Zip  %>
+		<%= f.label :email, 'Email :'%>
+		<%= f.text_field :email, :readonly => true, :value => @profile.email%>
+		<%= f.submit 'Update', class: "button small radius"%>
+	<% end %>
+</div>
