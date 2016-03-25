@@ -1,0 +1,76 @@
+<div class="row">
+<p id="notice"><%= notice %></p>
+</div>
+<div class="row right">
+<%= link_to 'Edit', edit_campaign_path(@campaign), class:"button small radius" if (current_user?(@campaign.user_id)) %> 
+<%= link_to 'All Campaigns', campaigns_path, class:"button small radius" %>
+</div>
+<div class="row">
+  <div class=" small-12 large-4 columns ">
+  <p>
+    <%= image_tag(@campaign.campimg.url, class: 'style_campaign_image') %>
+  </p>
+   <%= link_to 'Udpate Campaign Image', file_upload_path(:id => @campaign.id), class: 'label warning'%>
+  </div>
+    <div class=" small-12 large-8 columns ">
+      <p>
+        <strong>Campaign name:</strong>
+        <%= @campaign.campaign_name %>
+      </p>
+
+      <p>
+        <strong>Campaign description:</strong>
+        <%= @campaign.campaign_description %>
+      </p>
+
+      <p>
+        <strong>Reward:</strong>
+        <%= @campaign.reward %>
+      </p>
+
+      <p>
+        <strong>Tnc:</strong>
+        <%= @campaign.tnc %>
+      </p>
+
+      <p>
+        <strong>Campaign startdate:</strong>
+        <%= @campaign.campaign_startdate %>
+      </p>
+
+      <p>
+        <strong>Campaign enddate:</strong>
+        <%= @campaign.campaign_enddate %>
+      </p>
+
+      <p>
+        <strong>Tags:</strong>
+        <%=raw @campaign.tag_list.map { |t|  link_to t, tag_path(t) }.join(' , ') %>
+      </p>
+
+    <div class="row right">
+      <%= link_to 'Submit entry', new_article_path(:campaign_id => @campaign.id), class: "button small radius" %>
+    </div>
+    </div>
+
+</div>
+
+<div class="row">
+  <p>
+    <%if(@campaign.find_related_tags.any?{|c| c.campaign_name})%>
+      <strong>Related Campaigns</strong><br>
+        <%@campaign.find_related_tags.limit(3).map do  |c| %>
+        <div class="small-6 large-3 columns">
+          <%if c.id.nil?%>
+          <%else%>
+          <%= c.campaign_name %><br>
+          <%=link_to image_tag(c.campimg, class: 'style_campaign_tag_image'), campaign_path(c) %>
+          <% end %>
+        </div>
+        <%end%>
+    <%else%>
+    <%end%>
+  </p>
+</div>
+<br>
+
